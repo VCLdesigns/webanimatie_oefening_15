@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>15 A</title>
+    <link rel="stylesheet" href="css/styleA.css">
+</head>
+
+<body>
+
+    <div id="game">
+        <h2 id="tekst_ballon">Kan ik je helpen?</h2>
+        <div id="portier"></div>
+        <div id="chocolade"></div>
+        <div id="koekje"></div>
+    
+
+    </div>
+
+    <script>
+        var hetKoekje = document.querySelector("#koekje");
+        var deChocolade = document.querySelector("#chocolade");
+        var dePortier = document.querySelector("#portier");
+        var tekstBallon = document.querySelector("#tekst_ballon")
+
+        heeftKoekje = false;
+        heeftChocolade = false;
+
+        hetKoekje.addEventListener("click", portierOmkopen);
+        deChocolade.addEventListener("click", portierOmkopen);
+        dePortier.addEventListener("click", portierOmkopen);
+
+        function portierOmkopen(evt) {
+            if (evt.currentTarget.getAttribute("id") == "koekje") {
+                heeftKoekje = true;
+                tekstBallon.innerHTML = "Yummy, lekker koekje!"
+                hetKoekje.classList.toggle("koek_eten");
+            } else if (evt.currentTarget.getAttribute("id") == "chocolade") {
+                heeftChocolade = true;
+                tekstBallon.innerHTML = "Yummy, lekkere chocolade!"
+                deChocolade.classList.toggle("chocolade_eten");
+            } else if (evt.currentTarget.getAttribute("id") == "portier"){
+                if (heeftKoekje == false && heeftChocolade == true) {
+                    tekstBallon.innerHTML = "Ik wil een koekje!"
+                } else if (heeftKoekje == true && heeftChocolade == false) {
+                    tekstBallon.innerHTML = "Ik wil een chocolaatje!"
+                } else if (heeftKoekje == false && heeftChocolade == false) {
+                    tekstBallon.innerHTML = "Ik wil een chocolaatje of een koekje!"
+                }
+            }
+            if (heeftKoekje == true && heeftChocolade == true) {
+                tekstBallon.innerHTML = "Bedankt! Nu moet ik snel naar de Toilet!"
+                dePortier.classList.toggle("loop_weg");
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>

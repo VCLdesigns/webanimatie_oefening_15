@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>15 B</title>
+    <link rel="stylesheet" href="css/styleB.css">
+</head>
+
+<body>
+
+    <div id="game">
+
+        <div id="tulp"></div>
+        <div id="bloempot"></div>
+        <div id="voorgrond"></div>
+
+        <div id="gieter"></div>
+        <div id="urine"></div>
+
+    </div>
+
+    <script>
+        var deGieter = document.querySelector("#gieter");
+        var deUrine = document.querySelector("#urine");
+        var deTulp = document.querySelector("#tulp")
+
+        heeftGieter = false;
+        heeftUrine = false;
+
+        deGieter.addEventListener("click", plantenWateren);
+        deUrine.addEventListener("click", plantenWateren);
+
+
+        function plantenWateren(evt) {
+            if (evt.currentTarget.getAttribute("id") == "gieter") {
+                deGieter.classList.add("gieter_nemen");
+                heeftGieter = true;
+            } else if (evt.currentTarget.getAttribute("id") == "urine") {
+                deUrine.classList.add("urine_nemen");
+                heeftUrine = true;
+            }
+            if ( heeftGieter == true || heeftUrine == true){
+                    deTulp.classList.add("tulp_groeien")
+
+            }
+            
+        }
+    </script>
+
+</body>
+
+</html>
